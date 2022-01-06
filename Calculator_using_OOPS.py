@@ -1,21 +1,24 @@
 class Calculator():
-    def add(self, num1, num2):
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+
+
+    def add(self):
         return num1 + num2
 
-    def sub(self, num1, num2):
+    def sub(self):
         return num1 - num2
 
-    def mul(self, num1, num2):
+    def mul(self):
         return num1 * num2
 
-    def div(self, num1, num2):
+    def div(self):
         try:
             return num1 / num2
         except ZeroDivisionError as e:
             print("Can't devide by zero!")
 
-
-operation = Calculator()
 
 while True:
     try:
@@ -29,21 +32,23 @@ while True:
         try:
             num1 = int(input("num1:"))
             num2 = int(input("num1:"))
+            operation = Calculator(num1, num2)
+
         except ValueError as e:
             print("only numbers allowed!")
             continue
 
         if choice == 1:
-            print("result:", operation.add(num1, num2))
+            print("result:", operation.add())
 
         elif choice == 2:
-            print("result:", operation.sub(num1, num2))
+            print("result:", operation.sub())
 
         elif choice == 3:
-            print("result:", operation.mul(num1, num2))
+            print("result:", operation.mul())
 
         elif choice == 4:
-            print("result:", operation.div(num1, num2))
+            print("result:", operation.div())
 
     elif choice == 5:
         print("program closed by user.")
